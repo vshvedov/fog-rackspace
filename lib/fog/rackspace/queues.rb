@@ -48,7 +48,7 @@ module Fog
           @rackspace_queues_client_id = options[:rackspace_queues_client_id] || Fog::UUID.uuid
           @rackspace_auth_url = options[:rackspace_auth_url]
           @rackspace_queues_url = options[:rackspace_queues_url]
-          @rackspace_must_reauthenticate = false
+          @rackspace_must_reauthenticate = true
           @connection_options = options[:connection_options] || {}
           @rackspace_region = options[:rackspace_region]
 

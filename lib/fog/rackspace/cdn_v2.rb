@@ -61,7 +61,7 @@ module Fog
           @rackspace_auth_url            = options[:rackspace_auth_url]
           @rackspace_region              = options[:rackspace_region]
           @connection_options            = options[:connection_options] || {}
-          @rackspace_must_reauthenticate = false
+          @rackspace_must_reauthenticate = true
 
           authenticate
 

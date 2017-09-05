@@ -116,7 +116,7 @@ module Fog
           @rackspace_username = options[:rackspace_username]
           @rackspace_auth_url = options[:rackspace_auth_url]
           setup_custom_endpoint(options)
-          @rackspace_must_reauthenticate = false
+          @rackspace_must_reauthenticate = true
           @connection_options = options[:connection_options] || {}
 
           authenticate
