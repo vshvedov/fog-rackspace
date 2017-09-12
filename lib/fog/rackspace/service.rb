@@ -40,10 +40,11 @@ module Fog
         first_attempt = true
         begin
           response = @connection.request(request_params(params))
-        rescue Excon::Errors::Unauthorized => error
+        rescue Excon::Errors::Unauthorized, Errno::EPIPE => error
           raise error unless first_attempt
           first_attempt = false
           authenticate
+
           retry
         end
 
