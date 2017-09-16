@@ -37,12 +37,13 @@ module Fog
       end
 
       def request(params, parse_json = true)
-        first_attempt = true
+        tries = 0
         begin
           response = @connection.request(request_params(params))
         rescue Excon::Errors::Unauthorized, Errno::EPIPE => error
-          raise error unless first_attempt
-          first_attempt = false
+          puts "[ERR][#{tries}] -- #{error}"
+          raise error if tries == 10
+          tries += 1
           authenticate
 
           retry
